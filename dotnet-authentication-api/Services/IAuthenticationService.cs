@@ -2,7 +2,7 @@
 
 namespace dotnet_authentication_api.Services
 {
-    public interface IAuthenticationServices
+    public interface IAuthenticationService
     {
         Task<string> Register(RegisterRequestDto request);
         Task<string> Login(LoginRequestDto request);

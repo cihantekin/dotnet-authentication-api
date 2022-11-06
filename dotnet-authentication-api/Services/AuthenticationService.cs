@@ -50,10 +50,7 @@ namespace dotnet_authentication_api.Services
         {
             var user = await _userManager.FindByNameAsync(request.Username);
 
-            if (user is null)
-            {
-                user = await _userManager.FindByEmailAsync(request.Username);
-            }
+            user ??= await _userManager.FindByEmailAsync(request.Username);
 
             if (user is null || !await _userManager.CheckPasswordAsync(user, request.Password))
             {

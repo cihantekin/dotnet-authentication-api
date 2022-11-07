@@ -8,7 +8,7 @@ using System.Text;
 
 namespace dotnet_authentication_api.Services
 {
-    public class AuthenticationService : IAuthenticationServices
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;

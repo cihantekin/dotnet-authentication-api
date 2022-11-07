@@ -1,16 +1,16 @@
 using dotnet_authentication_api.Model.Db;
 using dotnet_authentication_api.Model.Entity;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using AuthenticationService = dotnet_authentication_api.Services.AuthenticationService;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<dotnet_authentication_api.Services.IAuthenticationService, AuthenticationService>();
 
 // Add services to the container.
 
@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen();
 //DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DbConnectionString"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("db"));
 });
 
 //Identity

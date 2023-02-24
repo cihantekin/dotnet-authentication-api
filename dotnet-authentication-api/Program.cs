@@ -36,6 +36,10 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 
+
+//This is also possible. you can pass all parameters just putting them inside appsettings file like (Authentication:Schemes:Bearer:{Authority etc...})
+//.AddJwtBearer()
+
 //Jwt Bearer
 .AddJwtBearer(options =>
 {
